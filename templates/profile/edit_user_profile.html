@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="content">
+  <div class="container-fluid">
+    <div class="card">
+      <div class="card-header card-header-icon" data-background-color="blue">
+        <i class="material-icons">assignment</i>
+      </div>
+      <div class="card-content">
+        <div class="">
+          <div class=""> 
+            <form class="form-horizontal" action="." method="POST" enctype="multipart/form-data" id="form">{% csrf_token %}
+            <span style="color:red">{{ form.non_field_errors }}</span>
+
+            <div class="col-md-12">
+              
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="col-sm-3 label-on-left">
+                      <label>First Name {% if form.first_name.field.required %}
+                        <font color="red">*</font> {% endif %}
+                      </label>
+                    </div>
+                    <div class="col-md-8">
+                      <div class="form-group label-floating is-empty">
+                        {{form.first_name}}
+                        <span style="color:red">
+
+                          {% if form.first_name.errors %}
+                            {{ form.first_name.errors|striptags }}
+                          {% endif %}
+
+                          {% if form.first_name.help_text %}
+                            {{ form.first_name.help_text }}
+                          {% endif %}</span><br />
+
+                        <span class="material-input"></span>
+                      </div>
+                    </div>
+                  </div>
+                                
+                <div class="col-md-6">
+                  <div class="col-sm-3 label-on-left">
+                    <label>Primary Email {% if form.email.field.required %} <font color="red">*</font> {% endif %}
+                    </label>
+                  </div>
+                  <div class="col-md-8">
+                    <div class="form-group label-floating is-empty">
+                      {{form.email}} 
+                      <span style="color:red">
+
+                        {% if form.email.errors %}
+                          {{ form.email.errors|striptags }}
+                        {% endif %}
+
+                        {% if msg %}
+                          <p style="color:red;">{{msg}}</p></span><br /> 
+                        {% endif %}
+                      <span class="material-input"></span>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="col-sm-3 label-on-left">
+                    <label>Mobile Number {% if form.contact.field.required %} <font color="red">*</font> {% endif %}</label>
+                  </div>
+                <div class="col-md-8">
+                  <div class="form-group label-floating is-empty">
+                    {{form.contact}}
+                    <span style="color:red">{% if form.contact.errors %}{{ form.contact.errors|striptags }}{% endif %}</span><br>
+                    <span class="material-input"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="col-sm-3 label-on-left">
+                  <label>Secondary Email {% if form.secondary_email.field.required %} <font color="red">*</font> {% endif %}</label>
+                </div>
+                <div class="col-md-8">
+                  <div class="form-group label-floating is-empty" >
+                    {{form.secondary_email}} <span style="color:red">{% if form.secondary_email.errors %}{{ form.secondary_email.errors|striptags }}{% endif %}
+                  {% if msg %}
+                    <p style="color:red;">{{msg}}</p></span><br /> {% endif %}
+                    <span class="material-input"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+                             
+            <div class="row">
+              <div class="col-md-6">
+               <div class="col-sm-3 label-on-left">
+                  <label>Gender {% if form.gender.field.required %} <font color="red">*</font> {% endif %}</label>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">   
+                  {{form.gender}}
+                  <span style="color:red">{% if form.gender.errors %}  {{ form.gender.errors|striptags}} {% endif %} {% if form.gender.help_text %} {{ form.gender.help_text }}</span>{% endif %}
+                  <span class="material-input"></span>
+                </div>
+              </div>
+            </div>                                              
+            <div class="col-md-6">
+              <div class="col-sm-3 label-on-left">
+                <label>Birth Date {% if form.birth_date.field.required %} <font color="red">*</font> {% endif %}</label>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group label-floating is-empty"  id="id_valid_from" >
+                  {{form.birth_date}} <span style="color:red">{% if form.birth_date.errors %}{{ form.birth_date.errors|striptags }}{% endif %}
+                  {% if form.birth_date.help_text %} {{ form.birth_date.help_text }} {% endif %}</span><br />
+                  <span class="material-input"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br><br>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="col-sm-3 label-on-left">
+                <label>Profile Pic {% if form.profile_pic.field.required %} <font color="red">*</font> {% endif %}</label>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <img style="height: 100px; width: 200px;" name="user_pic" src="{{usr.profile_pic.url}}" alt="no profile pic">   
+                  <span style="color:red">{% if form.profile_pic.errors %}  {{ form.profile_pic.errors|striptags}} {% endif %} {% if form.profile_pic.help_text %} {{ form.profile_pic.help_text }}</span>{% endif %}
+                  <span class="material-input"></span>
+                </div>
+                <div class="col-md-8">
+                  <input type="file" name="profile_pic" id="profile_pic" class="myButton" title="Upload From PC" value= "Upload from PC" onchange="uploadPC()" style="float:left;">                                   
+                </div>
+              </div>
+            </div>                 
+          </div>
+
+          <div class="text-right btmbuttonbox" style="margin-left:-25px;">
+            <button id="save" type="submit" class="btn btn-rose btn-sm"> Save </button>
+              <a class="active" href="{% url 'profile' %}">
+                <span class="btn btn-fill btn-sm">Cancel</span>
+              </a>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<style>
+.form-group label {
+color: red;
+}
+</style>
+
+{% endblock %}
