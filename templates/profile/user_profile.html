@@ -7,7 +7,13 @@
         	<img src="/static/assets/img/homeslider_1.jpg" style="padding-bottom: 40px;width: 100%;padding-top: 10px;">
         	</div>
  
-			<img src="{{user_data.profile_pic.url}}">
+         <div class="text-center">
+            <img src="{{user_data.profile_pic.url}}" class="avatar img-circle img-thumbnail" name="user_pic" alt="avatar" height=, width="200px">
+            <!-- <h6>Upload a different photo...</h6> -->
+            <!-- <input type="file" class="text-center center-block file-upload"> -->
+          </div></hr><br>
+
+			<!-- <img src="{{user_data.profile_pic.url}}"> -->
 			<p>	User Name : {{user.username}}</p>
 			<p>	First Name : {{user.first_name}}  </p>
 			<p>	Last Name : {{user.last_name}} </p>
