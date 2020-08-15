@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'password_generator',
     'ngite_blog',
     'portfolio',
-    'kaamkaj'
+    'kaamkaj',
 ]
 
 MIDDLEWARE = [

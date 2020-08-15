@@ -1,0 +1,10 @@
+{% extends './kaamkaj_base.html' %}
+
+{% block content %}
+
+<h1>Home</h1>
+
+	<a href="{% url 'create_kaam' %}">Create Todo</a>
+	<a href="{% url 'kaamkaj_list' %}">Todos</a>
+
+{% endblock %}

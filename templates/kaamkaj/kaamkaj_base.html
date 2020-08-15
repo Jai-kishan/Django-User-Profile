@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome to Ngite</title>
+</head>
+<body>
+{% block content %} {% endblock %}
+<hr>
+
+{% if user.is_authenticated %}
+	Logged In as {{user.username}}
+	
+<form method="POST" action="{% url 'logout' %}">
+{% csrf_token %}
+<button type="submit">Logout</button>
+</form> 
+
+{% endif %}
+
+</body>
+</html>

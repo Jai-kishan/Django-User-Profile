@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('password_generator.urls')),
     path('portfolio', include('portfolio.urls')),
     path('blog', include('ngite_blog.urls')),
+    path('kaamkaj', include('kaamkaj.urls')),
     
     path('password/reset/', auth_views.PasswordResetView.as_view(template_name='registration/password_reset_form.html'),name="password-reset"),
     path('password_reset/done/', auth_views.PasswordResetDoneView.as_view(template_name= 'registration/password_reset_done.html'),name='password_reset_done'),    

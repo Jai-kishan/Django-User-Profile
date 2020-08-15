@@ -1,0 +1,15 @@
+{% extends './kaamkaj_base.html' %}
+{% block content %}
+
+<a href="{% url 'kaamkaj' %}">Home</a>
+<h1>Todos</h1>
+
+<h2>{{error}}</h2>
+
+<form method="POST">
+	{% csrf_token %}
+	 {{form.as_p}}
+	 <button type="sumbit">Create</button>
+</form>
+
+{% endblock %}

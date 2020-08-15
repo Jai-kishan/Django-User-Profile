@@ -1,0 +1,28 @@
+{% extends './kaamkaj_base.html' %}
+
+{% block content %}
+
+	<h1>Welocme to World famous Ngite Human Code</h1>
+
+			<h2>{{error}}</h2>
+		{% for todo in todos %}
+			<li>
+				<a href="{% url 'kaam_details' todo.id %}">
+					{% if todo.important %}
+						<b>{{todo.title}}</b>
+					{% else %}
+						{{todo.title}}
+					{% endif %}
+				</a>
+
+				{% if todo.memo %} - {{ todo.memo }} {% endif %}
+
+			</li>
+
+		{% endfor %} <br>
+
+	<a href="{% url 'create_kaam' %}">Create Todo</a>
+	<a href="{% url 'kaamkaj' %}">Home</a>
+	
+	
+{% endblock %}

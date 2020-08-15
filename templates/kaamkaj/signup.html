@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+ <h1>You are already loged in as {{user.username}}</h1>
+ 
+<a href="{% url 'home' %}">Home</a>
+ 
+{% else %}
+<h1>Sign Up</h1>
+
+<h2>{{error}}</h2>
+
+<form method="POST">
+	{% csrf_token %}
+	 {{form.as_p}}
+	 <button type="sumbit">Sign Up</button>
+</form>
+<a href="{% url 'login' %}">Login</a>
+<a href="{% url 'home' %}">Home</a>
+{% endif %}
+{% endblock %}
