@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(&szn1sjosenaawi!f9q(nyuvr#-df2w#h&ixj@aekm%8#@%0('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['ngitehumancode.pythonanywhere.com','127.0.0.1','localhost']
 
@@ -40,6 +40,9 @@ INSTALLED_APPS = [
 
     'user_profile',
     'password_generator',
+    'ngite_blog',
+    'portfolio',
+    'kaamkaj'
 ]
 
 MIDDLEWARE = [
@@ -79,10 +82,9 @@ WSGI_APPLICATION = 'DFSL.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'new_django_user_db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'ngite_blogdb.sqlite3'),
     }
 }
-
 
 # DATABASES = {
 #     'default': {
@@ -156,7 +158,7 @@ LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'profile'
 
 
-try:
-    from .local_settings import *
-except ImportError:
-    print('Looks like no local file. You must be on production')
+# try:
+#     from .local_settings import *
+# except ImportError:
+#     print('Looks like no local file. You must be on production')

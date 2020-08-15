@@ -11,10 +11,6 @@ def home(request):
     return render(request, 'home.html',locals())
 
 
-@login_required
-def home(request):
-    return render(request, 'home.html',locals())    
-
 def user_signup(request):    
     if request.method == 'POST':
         form            = SignUpForm(request.POST)
@@ -108,7 +104,7 @@ def user_profile(request):
         user_data= UserProfile.objects.get(user=request.user.id)
     except UserProfile.DoesNotExist:
         user =None
-    return  render(request,'profile/user_profile.html',locals())
+    return  render(request,'user_profile/user_profile.html',locals())
 
 
 @login_required
@@ -164,4 +160,4 @@ def edit_user_profile(request,pk):
             'contact':usr.contact,'last_name':usr.user.last_name,
             'profile_pic':usr.profile_pic.url,
           })
-    return render(request,'profile/edit_user_profile.html', locals())
+    return render(request,'user_profile/edit_user_profile.html', locals())
