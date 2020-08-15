@@ -25,7 +25,7 @@ SECRET_KEY = '(&szn1sjosenaawi!f9q(nyuvr#-df2w#h&ixj@aekm%8#@%0('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ngitehumancode.pythonanywhere.com']
+ALLOWED_HOSTS = ['ngitehumancode.pythonanywhere.com','127.0.0.1','localhost']
 
 
 # Application definition
@@ -153,3 +153,9 @@ LOGOUT_URL = 'logout'
 
 # When the user successfully logs in, he will be redirected to LOGIN_REDIRECT_URL, so no need to ?next=/some-path
 LOGIN_REDIRECT_URL = 'profile'
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    print('Looks like no local file. You must be on production')
