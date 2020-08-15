@@ -135,7 +135,7 @@ CREATE TABLE public.auth_user (
     last_login timestamp with time zone,
     is_superuser boolean NOT NULL,
     username character varying(150) NOT NULL,
-    first_name character varying(30) NOT NULL,
+    first_name character varying(150) NOT NULL,
     last_name character varying(150) NOT NULL,
     email character varying(254) NOT NULL,
     is_staff boolean NOT NULL,
@@ -534,7 +534,8 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
 1	pbkdf2_sha256$180000$tdYRiZMMT0LX$MBV6jYHtaTBVrApGQuPZki2wmGN8zlNokDvAqw9yu/E=	2020-08-14 11:06:17.119497+05:30	t	admin			admin@gmail.com	t	t	2020-08-14 11:05:29.812836+05:30
-2	pbkdf2_sha256$180000$2wdYQeheNlMG$FBNka3+u+OJQM9NWqG8IWraG9cyPPnCEgRlvAt8k8to=	2020-08-14 11:11:19.31698+05:30	f	annu@gmail.com	Annu	Bharti	annu@gmail.com	f	t	2020-08-14 11:07:55.0401+05:30
+2	pbkdf2_sha256$180000$6DZz3JxlQYwb$jMxI29E/+FzOWioqKih3XSnEmKYriW/od7hJS1VTybU=	2020-08-14 17:32:05.658463+05:30	f	annu@gmail.com	Annu	Bharti	annu@gmail.com	f	t	2020-08-14 11:07:55.0401+05:30
+3	pbkdf2_sha256$180000$kN0D5orXg1Ji$P3Jd7DiGnvxddVJykECDhqDtj/BXkLPtil9An+YBiao=	2020-08-15 12:17:55.906106+05:30	f	jai@navgurukul.org	Jai	Dev	jai@navgurukul.org	f	t	2020-08-15 12:17:55.197313+05:30
 \.
 
 
@@ -602,6 +603,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 18	user_profile	0001_initial	2020-08-14 11:04:56.233781+05:30
 19	user_profile	0002_auto_20200311_1345	2020-08-14 11:04:56.519442+05:30
 20	user_profile	0003_auto_20200313_1557	2020-08-14 11:04:56.763277+05:30
+21	auth	0012_alter_user_first_name_max_length	2020-08-15 12:42:01.230354+05:30
 \.
 
 
@@ -610,6 +612,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 --
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
+v1z82x1qrq2qhg0rv31az15bnh272w6z	YmJjYmYxMTJlZDdjNTBiZWIyNjYxNDZjZWJiODk3N2M1ZGMwODdhODp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTBkMjhiMjAyOTc2OGYyODVmMzdkMjk3MjllMDE5YWQ4NjEwNDIyIn0=	2020-08-29 12:17:55.912211+05:30
 \.
 
 
@@ -618,7 +621,8 @@ COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
 --
 
 COPY public.user_profile_userprofile (id, active, created, modified, birth_date, profile_pic, contact, secondary_email, gender, user_id) FROM stdin;
-1	2	2020-08-14 11:07:55.227888+05:30	2020-08-14 11:11:37.033076+05:30	1999-05-13	user_pic/2020/08/14/IMG20191220002400.jpg	8340604379		1	2
+1	2	2020-08-14 11:07:55.227888+05:30	2020-08-14 23:09:07.303393+05:30	1999-05-13	user_pic/2020/08/14/IMG20200729195016_Me8xKrs.jpg	8340604379	annu@navgurukul.org	1	2
+2	2	2020-08-15 12:17:55.550269+05:30	2020-08-15 12:18:53.777787+05:30	1997-11-30	user_pic/2020/08/15/Snapchat-34403503.jpg	\N		0	3
 \.
 
 
@@ -654,7 +658,7 @@ SELECT pg_catalog.setval('public.auth_user_groups_id_seq', 1, false);
 -- Name: auth_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: humancode
 --
 
-SELECT pg_catalog.setval('public.auth_user_id_seq', 2, true);
+SELECT pg_catalog.setval('public.auth_user_id_seq', 3, true);
 
 
 --
@@ -682,14 +686,14 @@ SELECT pg_catalog.setval('public.django_content_type_id_seq', 7, true);
 -- Name: django_migrations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: humancode
 --
 
-SELECT pg_catalog.setval('public.django_migrations_id_seq', 20, true);
+SELECT pg_catalog.setval('public.django_migrations_id_seq', 21, true);
 
 
 --
 -- Name: user_profile_userprofiledata_id_seq; Type: SEQUENCE SET; Schema: public; Owner: humancode
 --
 
-SELECT pg_catalog.setval('public.user_profile_userprofiledata_id_seq', 1, true);
+SELECT pg_catalog.setval('public.user_profile_userprofiledata_id_seq', 2, true);
 
 
 --

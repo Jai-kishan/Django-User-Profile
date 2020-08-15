@@ -1,4 +1,5 @@
 <!doctype html>
+{% load custom_tags %}
 <html lang="en">
 
 <head>
@@ -39,10 +40,21 @@
                     Nav Gurukul
                 </a>
             </div>
+
             <div class="sidebar-wrapper">
                 <div class="user">
                     <div class="photo">
-                        <img src="{{user_data.profile_pic.url}}" />
+                        {% if request.user.is_authenticated %}
+                            {% ger_user_profile request.user.id as user_profile %} 
+                                {% if user_profile.profile_pic.url %}
+                                    <img src="{{user_profile.profile_pic.url}}" />
+                                {% else %}
+                                    <img src="/static/assets/img/faces/avatar.jpg" />
+                                }
+                                {% endif %} 
+                        
+                        {% endif %}
+
                     </div>
                     <div class="info">
                         <a data-toggle="collapse" href="#collapseExample" class="collapsed" style="padding-right: 0px;">
@@ -53,7 +65,8 @@
  -->
                             <span>
                                {% if request.user.is_authenticated %}
-                                    {{ request.user.username }}                                  
+                                    {{ request.user.username }}
+
                                 {% else %}
                                     Jai Dev
                                 {%endif%}
