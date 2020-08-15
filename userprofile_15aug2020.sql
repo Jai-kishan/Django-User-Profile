@@ -533,9 +533,9 @@ COPY public.auth_permission (id, name, content_type_id, codename) FROM stdin;
 --
 
 COPY public.auth_user (id, password, last_login, is_superuser, username, first_name, last_name, email, is_staff, is_active, date_joined) FROM stdin;
-1	pbkdf2_sha256$180000$tdYRiZMMT0LX$MBV6jYHtaTBVrApGQuPZki2wmGN8zlNokDvAqw9yu/E=	2020-08-14 11:06:17.119497+05:30	t	admin			admin@gmail.com	t	t	2020-08-14 11:05:29.812836+05:30
 2	pbkdf2_sha256$180000$6DZz3JxlQYwb$jMxI29E/+FzOWioqKih3XSnEmKYriW/od7hJS1VTybU=	2020-08-14 17:32:05.658463+05:30	f	annu@gmail.com	Annu	Bharti	annu@gmail.com	f	t	2020-08-14 11:07:55.0401+05:30
 3	pbkdf2_sha256$180000$kN0D5orXg1Ji$P3Jd7DiGnvxddVJykECDhqDtj/BXkLPtil9An+YBiao=	2020-08-15 12:17:55.906106+05:30	f	jai@navgurukul.org	Jai	Dev	jai@navgurukul.org	f	t	2020-08-15 12:17:55.197313+05:30
+1	pbkdf2_sha256$216000$Mawh7sVTxj5S$W3xaNqAEfTijv0Y60T96LTNSYp1u1JNISz9VvLTb2pg=	2020-08-15 14:15:49.868907+05:30	t	admin	admin		admin@gmail.com	t	t	2020-08-14 11:05:29.812836+05:30
 \.
 
 
@@ -560,6 +560,13 @@ COPY public.auth_user_user_permissions (id, user_id, permission_id) FROM stdin;
 --
 
 COPY public.django_admin_log (id, action_time, object_id, object_repr, action_flag, change_message, content_type_id, user_id) FROM stdin;
+1	2020-08-15 14:04:35.560662+05:30	2	jai@navgurukul.org	2	[{"changed": {"fields": ["Profile pic"]}}]	7	1
+2	2020-08-15 14:14:20.032694+05:30	3	admin@gmail.com	1	[{"added": {}}]	7	1
+3	2020-08-15 14:14:52.311666+05:30	3	admin@gmail.com	2	[{"changed": {"fields": ["Profile pic"]}}]	7	1
+4	2020-08-15 14:16:09.775729+05:30	1	admin	2	[{"changed": {"fields": ["password"]}}]	4	1
+5	2020-08-15 14:17:27.911731+05:30	3	admin@gmail.com	2	[{"changed": {"fields": ["Profile pic"]}}]	7	1
+6	2020-08-15 14:17:38.981877+05:30	3	admin@gmail.com	2	[{"changed": {"fields": ["Profile pic"]}}]	7	1
+7	2020-08-15 14:17:48.108161+05:30	2	jai@navgurukul.org	2	[{"changed": {"fields": ["Profile pic"]}}]	7	1
 \.
 
 
@@ -612,7 +619,7 @@ COPY public.django_migrations (id, app, name, applied) FROM stdin;
 --
 
 COPY public.django_session (session_key, session_data, expire_date) FROM stdin;
-v1z82x1qrq2qhg0rv31az15bnh272w6z	YmJjYmYxMTJlZDdjNTBiZWIyNjYxNDZjZWJiODk3N2M1ZGMwODdhODp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5ZTBkMjhiMjAyOTc2OGYyODVmMzdkMjk3MjllMDE5YWQ4NjEwNDIyIn0=	2020-08-29 12:17:55.912211+05:30
+u0bs0e6xhlploo01t3q3qejkljtwceia	.eJxVjDsOwjAQRO_iGln-4WQp6TmDtd61cQDZUpxUiLuTSClAmmrem3mLgOtSwtrTHCYWF6HF6beLSM9Ud8APrPcmqdVlnqLcFXnQLm-N0-t6uH8HBXvZ1l4Bjh6yVSP5LZrZDKgZXPSa4GyVBUMDG52dTU6z9ZwVKEOWlXEoPl_DgzcK:1k6rpJ:d5B6Ceo5ZzUJo6soqoRWYiK6i0D2QRpiocV6MBT6K4s	2020-08-29 14:16:09.802897+05:30
 \.
 
 
@@ -622,7 +629,8 @@ v1z82x1qrq2qhg0rv31az15bnh272w6z	YmJjYmYxMTJlZDdjNTBiZWIyNjYxNDZjZWJiODk3N2M1ZGM
 
 COPY public.user_profile_userprofile (id, active, created, modified, birth_date, profile_pic, contact, secondary_email, gender, user_id) FROM stdin;
 1	2	2020-08-14 11:07:55.227888+05:30	2020-08-14 23:09:07.303393+05:30	1999-05-13	user_pic/2020/08/14/IMG20200729195016_Me8xKrs.jpg	8340604379	annu@navgurukul.org	1	2
-2	2	2020-08-15 12:17:55.550269+05:30	2020-08-15 12:18:53.777787+05:30	1997-11-30	user_pic/2020/08/15/Snapchat-34403503.jpg	\N		0	3
+2	2	2020-08-15 12:17:55.550269+05:30	2020-08-15 14:17:48.104686+05:30	1997-11-30	user_pic/2020/08/15/128241.jpg	\N	\N	0	3
+3	2	2020-08-15 14:14:20.03006+05:30	2020-08-15 14:18:30.6269+05:30	\N	user_pic/2020/08/15/27341_sXiULkW.jpg	1234567890		0	1
 \.
 
 
@@ -672,7 +680,7 @@ SELECT pg_catalog.setval('public.auth_user_user_permissions_id_seq', 1, false);
 -- Name: django_admin_log_id_seq; Type: SEQUENCE SET; Schema: public; Owner: humancode
 --
 
-SELECT pg_catalog.setval('public.django_admin_log_id_seq', 1, false);
+SELECT pg_catalog.setval('public.django_admin_log_id_seq', 7, true);
 
 
 --
@@ -693,7 +701,7 @@ SELECT pg_catalog.setval('public.django_migrations_id_seq', 21, true);
 -- Name: user_profile_userprofiledata_id_seq; Type: SEQUENCE SET; Schema: public; Owner: humancode
 --
 
-SELECT pg_catalog.setval('public.user_profile_userprofiledata_id_seq', 2, true);
+SELECT pg_catalog.setval('public.user_profile_userprofiledata_id_seq', 3, true);
 
 
 --
