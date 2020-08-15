@@ -2,18 +2,130 @@
 {% block content %}
 <div class="content">
         <div class="container-fluid">
+            
             <div>
-                            
-
-        	<center style="font-size:20px">Welcome to Django for self-learning</center>
-        	<img src="/static/assets/img/homeslider_1.jpg" style="padding-bottom: 40px;width: 100%;padding-top: 10px;">
+            	<center style="font-size:20px">Welcome to Django for self-learning</center>
+            	<img src="/static/assets/img/homeslider_1.jpg" style="padding-bottom: 40px;width: 100%;padding-top: 10px;">
         	</div>
-       <!--  	<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.5972641180347!2d72.56763995018008!3d23.0385549848711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f53fffffff%3A0x1207a8a45305d211!2sAga+Khan+Rural+Support+Programme+India!5e0!3m2!1sen!2sin!4v1542969414664" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe> -->
-        	<h4>Indexing</h4>
-        	<ul>
-        		
-        	</ul>
- 
-        </div>
+      
+            <div class="gmap_canvas">
+                <iframe id="gmap_canvas" src="https://maps.google.com/maps?q=navgurukul%20bangalore%20campus&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen >
+                </iframe>
+            </div>
+
+            <style>.mapouter{position:relative;text-align:right;}.gmap_canvas {overflow:hidden;background:none!important;}
+            </style>
+
+            <h4>DFSL Technical Documentation</h4>
+            <a href="{% url 'password_home' %}" class="btn btn-success">Random Password Generator </a>
+
+<pre>
+---Project Setup---
+i.   pip install virtualenv
+ii.  virtualenv env_name -p python3.7
+iii. pip install django
+iv.  python -m pip install Pillow
+v.   pip install psycopg2==2.7.6
+vi.  pip install psycopg2-binary
+vii. pip install ipdb
+</pre>
+
+<pre>
+Part-1 
+    I.   User Registration
+    II.  User Login
+    III. Update User Details
+    IV.  User Logout
+    V.   User Change Password
+    VI.  User Forget Password
+
+    approach/support material /
+</pre>
+
+
+<pre>
+Part-2 
+    ---Project Setup---
+    1)pip install social-auth-app-django
+    2)pip install unidecode
+    3)pip install requests
+
+    I.   User account verification 
+    II.  Login with scoical Media accounts
+    III. Advance Update User Details 
+    IV.  JWT Authentication
+    V.   Serializer
+    VI.  Django REST Framwwork
+</pre>
+
+<pre>
+Part-3 
+    I. Statice Menus
+        1) Dashboard 
+            i. All Google Charts
+        2) Reports
+            i. All user Details (using ORM quries)
+</pre>
+
+<pre>
+Part-4 
+    I. Dynamic Menus
+        1) Dashboard 
+            i. All Google Charts 
+            ii. Filter Date Range
+        2) Reports
+            i. All user Details
+            ii. Filter Date Range (SQL)
+</pre>
+
+<pre>
+Part-5 
+    1. Implatent Filter Based on Location, User and Date Time
+</pre>
+
+<pre>
+Part-6 
+    1. Dynamic Queryies for Dashboard and Reports (SQL)
+</pre>
+
+<pre>
+Part-7 
+    1. useing Procedure SQL implement Dashboard and Report
+</pre>
+
+<pre>
+past-8 
+    1) Google Captcha (text,robot,math)
+</pre>
+
+<pre>
+Part-9
+    I.   User Registration Form in Hindi or other language
+    II.  Page Translating Hindi to English
+    III. show user lishting page in region lanugae
+    IV.  <a href="https://github.com/javrasya/django-river"></a> 1.Django River 
+    V.  <a href="https://www.youtube.com/watch?v=57WOzGFkCiQ">Django River video</a>
+</pre>
+
+<hr>
+
+<pre>
+  <a href="https://hashedin.com/blog/a-guide-to-using-social-login-with-django/">
+    1.A Guide to Using Social Login with Django</a>
+  
+  <a href="https://simpleisbetterthancomplex.com/tutorial/2016/10/24/how-to-add-social-login-to-django.html">   2. How to Add Social Login to Django
+  </a>
+
+  <a href="https://medium.com/trabe/oauth-authentication-in-django-with-social-auth-c67a002479c1">
+    OAuth Authentication in Django with social-auth
+  </a>
+
+  <a href="https://studygyaan.com/django/how-to-add-social-login-to-django">
+    Django Social Login – Facebook, Twitter and GitHub
+  </a>
+
+</pre>
     </div>
+</div>
+
 {% endblock %}
