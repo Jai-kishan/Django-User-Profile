@@ -16,7 +16,7 @@ def kaamkaj(request):
 
 @login_required
 def kaam_list(request):
-	todos  = KaamKaj.objects.filter(user=request.user, accomplished__isnull=True).order_by('-created')
+	todos  = KaamKaj.objects.filter(user=request.user, complete_date__isnull=True).order_by('-created')
 	return render(request,'kaamkaj/current_kaam.html',locals())
 
 # def signup_user(request):
@@ -87,7 +87,7 @@ def kaamkaj_details(request,todo_id):
 def kaamkaj_complete(request,todo_pk):
 	todo = get_object_or_404(KaamKaj, id=todo_pk, user=request.user)
 	if request.method == 'POST':
-		todo.accomplished = timezone.now()
+		todo.complete_date = timezone.now()
 		todo.save()
 		return redirect('kaamkaj_list')
 		
