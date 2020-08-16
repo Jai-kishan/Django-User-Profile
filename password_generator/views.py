@@ -3,7 +3,7 @@ from django.http import HttpResponse
 import random
 # Create your views here.
 
-def home(request):
+def password_home(request):
 	return render(request, 'password_generator/password_home.html')
 
 

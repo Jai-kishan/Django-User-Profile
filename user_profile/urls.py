@@ -1,8 +1,6 @@
 from user_profile.views import *
 from django.urls import path
 
-
-
 urlpatterns = [ 
     path('', home, name='welcome-page'),
     path('signup/', user_signup, name='signup'),

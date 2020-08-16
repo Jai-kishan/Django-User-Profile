@@ -89,5 +89,5 @@ def kaamkaj_complete(request,todo_pk):
 	if request.method == 'POST':
 		todo.accomplished = timezone.now()
 		todo.save()
-		return redirect('kaam_list')
+		return redirect('kaamkaj_list')
 		
