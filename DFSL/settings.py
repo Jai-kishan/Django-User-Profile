@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'DFSL.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'ngite_blogdb.sqlite3'),
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'ngite_blogdb.sqlite3'),
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -96,6 +96,21 @@ DATABASES = {
 #         'PORT': '',
 #     }
 # }
+
+
+DATABASES = {
+    "default":{
+        "ENGINE" : 'django.db.backends.mysql',
+        'NAME': 'learning',
+        'USER': 'learning',
+        'PASSWORD' : 'admin2023',
+        'HOST' : 'localhost',
+        'PORT' : 3306
+    }
+}
+
+
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
