@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'ngite_blog',
     'portfolio',
     'kaamkaj',
+    'w3school_sql'
 ]
 
 MIDDLEWARE = [
@@ -101,9 +102,9 @@ WSGI_APPLICATION = 'DFSL.wsgi.application'
 DATABASES = {
     "default":{
         "ENGINE" : 'django.db.backends.mysql',
-        'NAME': 'learning',
-        'USER': 'learning',
-        'PASSWORD' : 'admin2023',
+        'NAME': 'w3school',
+        'USER': 'jai',
+        'PASSWORD' : 'Admin@9910',
         'HOST' : 'localhost',
         'PORT' : 3306
     }
